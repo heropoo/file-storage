@@ -1,0 +1,23 @@
+{
+    "type": "project",
+    "authors": [
+        {
+            "name": "Heropoo",
+            "email": "aiyouyou1000@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "heropoo/routing": "dev-master",
+        "heropoo/db": "dev-master",
+        "heropoo/config": "dev-master",
+        "monolog/monolog": "^1.0",
+        "filp/whoops": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "libraries/",
+            "App\\": "app/"
+        }
+    }
+}
