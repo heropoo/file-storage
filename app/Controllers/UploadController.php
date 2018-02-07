@@ -17,8 +17,8 @@ class UploadController extends Controller
     public function image()
     {
         $request = request();
-        $key = request('key');   //上传的文件key
-        $size = request('size', 2048);   //上传的文件大小 单位KB
+        $key = $request->get('key');   //上传的文件key
+        $size = $request->get('size', 2048);   //上传的文件大小 单位KB 默认2MB
         if (empty($key)) {
             return [
                 'ret' => 10010,

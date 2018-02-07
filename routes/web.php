@@ -11,10 +11,13 @@
  */
 $router = Moon::$app->get('router');
 
-$router->get('', function (){
+$router->get('/', function (){
     return 'welcome to file storage';
 });
 
 $router->group(['prefix'=>'upload'], function ($router){
     $router->post('image', 'UploadController::image');
 });
+
+$router->get('uploads/{path}', 'ImageController::get')
+    ->setRequirement('path', '(.*)');
