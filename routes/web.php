@@ -11,9 +11,7 @@
  */
 $router = Moon::$app->get('router');
 
-$router->get('/', function (){
-    return 'welcome to file storage';
-});
+$router->get('/', 'IndexController::index');
 
 $router->group(['prefix'=>'upload'], function ($router){
     $router->post('image', 'UploadController::image');
