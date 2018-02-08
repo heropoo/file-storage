@@ -37,7 +37,7 @@ class ImageController extends Controller
         $width = isset($param[0]) ? $param[0] : '';
         $height = isset($param[1]) ? $param[1] : '';
 
-        $image_manager = new ImageManager(['driver' => 'gd']);
+        $image_manager = new ImageManager(['driver' => config('image.driver')]);
         $image = $image_manager->make($origin_file);
 
         if ($width === 'w' && $height > 0) {
