@@ -7,5 +7,5 @@
  */
 
 return [
-    'driver'=>'gd'
+    'driver'=>'gd'  // or imagick
 ];
