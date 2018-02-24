@@ -1,20 +1,41 @@
 {
-    "type": "project",
     "authors": [
         {
             "name": "Heropoo",
             "email": "aiyouyou1000@163.com"
         }
     ],
+    "license": "MIT",
+    "type": "project",
     "require": {
-        "php": ">=5.4",
-        "heropoo/moon": "*",
+        "php": ">=5.6.4",
+        "laravel/lumen-framework": "5.5.*",
+        "vlucas/phpdotenv": "~2.2",
         "intervention/image": "^2.4"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "phpunit/phpunit": "~6.0",
+        "mockery/mockery": "~0.9"
     },
     "autoload": {
         "psr-4": {
-            "": "libraries/",
             "App\\": "app/"
-        }
-    }
+        },
+        "files":[
+            "libraries/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/",
+            "database/"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    },
+    "optimize-autoloader": true
 }

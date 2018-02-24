@@ -6,10 +6,10 @@
  * Time: 18:51
  */
 
-namespace App\Controllers;
+namespace App\Http\Controllers;
 
 use Intervention\Image\ImageManager;
-use Moon\Controller;
+use Laravel\Lumen\Routing\Controller;
 
 class ImageController extends Controller
 {
@@ -36,8 +36,7 @@ class ImageController extends Controller
 
         $width = isset($param[0]) ? $param[0] : '';
         $height = isset($param[1]) ? $param[1] : '';
-
-        $image_manager = new ImageManager(['driver' => config('image.driver')]);
+        $image_manager = new ImageManager(['driver' => config('image.driver', 'gd')]);
         $image = $image_manager->make($origin_file);
 
         if ($width === 'w' && $height > 0) {

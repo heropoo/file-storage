@@ -6,17 +6,17 @@
  * Time: 11:07
  */
 
-namespace App\Controllers;
+namespace App\Http\Controllers;
 
 use App\Services\UploadService;
-use Moon\Controller;
+use Illuminate\Http\Request;
+use Laravel\Lumen\Routing\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UploadController extends Controller
 {
-    public function image()
+    public function image(Request $request)
     {
-        $request = request();
         $key = $request->get('key');   //上传的文件key
         $size = $request->get('size', 2048);   //上传的文件大小 单位KB 默认2MB
         if (empty($key)) {
