@@ -16,15 +16,12 @@
 });*/
 
 /**
- * @var \Laravel\Lumen\Routing\Router
+ * @var \Laravel\Lumen\Routing\Router $router
  */
 $router->get('/', 'IndexController@index');
 
 $router->group(['prefix'=>'upload'], function () use ($router){
     $router->post('image', 'UploadController@image');
 });
-
-/*$router->get('uploads/{path}', 'ImageController@get')
-    ->where('path', '(.*)');*/
 
 $router->get('uploads/{path:.*}', 'ImageController@get');
