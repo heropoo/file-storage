@@ -20,8 +20,12 @@
  */
 $router->get('/', 'IndexController@index');
 
-$router->group(['prefix'=>'upload'], function () use ($router){
+$router->group(['prefix' => 'upload'], function ($router) {
     $router->post('image', 'UploadController@image');
+});
+
+$router->group(['prefix' => 'option'], function ($router) {
+    $router->post('delete', 'OptionController@delete'); //删除文件
 });
 
 $router->get('uploads/{path:.*}', 'ImageController@get');
