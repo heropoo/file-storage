@@ -1,15 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: ttt
+ * User: heropoo
  * Date: 2018/1/28
  * Time: 18:36
  */
 
-/**
- * @var \Moon\Routing\Router $router
- */
-$router = Moon::$app->get('router');
+use Moon\Routing\Router;
+use Moon\Request\Request;
+
+/** @var Router $router */
 
 $router->get('/', 'IndexController::index');
 
@@ -17,5 +17,4 @@ $router->group(['prefix'=>'upload'], function ($router){
     $router->post('image', 'UploadController::image');
 });
 
-$router->get('uploads/{path}', 'ImageController::get')
-    ->setRequirement('path', '(.*)');
+$router->get('img/{path}', 'ImageController::get');

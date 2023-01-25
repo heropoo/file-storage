@@ -8,6 +8,7 @@
     ],
     "require": {
         "php": ">=5.4",
+        "ext-gd": "*",
         "heropoo/moon": "*",
         "intervention/image": "^2.4"
     },
